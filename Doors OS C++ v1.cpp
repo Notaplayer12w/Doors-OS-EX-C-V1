@@ -6,7 +6,16 @@
 #include <chrono>
 #include <fstream>
 #ifndef _WIN32
-#error "This Project was only ment for windows please switch to windows and try again."
+std::string proceed;
+std::cout << "WARNING: Non-Windows OS detected. This build may contain critical bugs.\n";
+std::cout << "Do you want to proceed? (yes/no): ";
+std::getline(std::cin, proceed);
+
+if (proceed != "yes" && proceed != "y") {
+    std::cout << "Exited safely.\n";
+    return 0; // Safely shuts down the program
+}
+std::cout << "\nLaunching Doors OS anyways\n\n";
 #endif
 int main()
 {
