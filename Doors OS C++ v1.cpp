@@ -5,6 +5,9 @@
 #include <thread>
 #include <chrono>
 #include <fstream>
+#ifndef _WIN32
+#error "This Project was only ment for windows please switch to windows and try again."
+#endif
 int main()
 {
 	std::string fileList = "System_Files:\n - system.sys\n - doors_browser.config\n\nUser_Files:\n";
