@@ -106,7 +106,7 @@ int main()
             if (searchs == "google") {
             	std::cout<<"google is one of the worlds biggest and most used search engines \n";
 			}
-			else if (searchs != "doors os" && searchs != "hi" && searchs != "c++" && searchs != "doors net" && searchs != "google") {
+			else if (searchs != "ceta os" && searchs != "hi" && searchs != "c++" && searchs != "doors portal" && searchs != "google") {
 				std::cout<<"search not found, sorry.\n";
 			}
             
