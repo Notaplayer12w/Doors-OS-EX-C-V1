@@ -5,18 +5,13 @@
 #include <thread>
 #include <chrono>
 #include <fstream>
-#ifndef _WIN32
+#include <random>
 std::string proceed;
-std::cout << "WARNING: Non-Windows OS detected. This build may contain critical bugs.\n";
-std::cout << "Do you want to proceed? (yes/no): ";
-std::getline(std::cin, proceed);
 
-if (proceed != "yes" && proceed != "y") {
-    std::cout << "Exited safely.\n";
-    return 0; // Safely shuts down the program
-}
-std::cout << "\nLaunching Ceta OS anyways\n\n";
-#endif
+    std::random_device dev;
+    std::mt19937 rng(dev());
+    std::uniform_int_distribution<std::mt19937::result_type> dist10(1,10); // distribution in range [1, 10]
+
 int main()
 {
 	std::string fileList = "System_Files:\n - system.sys\n - doors_browser.config\n\nUser_Files:\n";
@@ -33,7 +28,9 @@ int main()
 	std::cout<<">Ceta OS C++ v1\n";
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 	while (true) {
-        std::cout<<">Ceta ";
+        std::cout<<"Doors> ";
+=======
+        std::cout<<"Ceta >";
         std::getline(std::cin, Ui);
         
         if (Ui == "help") {
@@ -50,12 +47,14 @@ int main()
 			std::cout<<">current date and time: " << std::ctime(&currentTime);
         }
         if (Ui == "guessing game") {
+            int guess = 0;
+            int rightnum = dist10(rng);
         	std::cout<<"guess the number 1-10 \n";
-			std::getline(std::cin,guess);
-        	if (guess == "4") {
+			std::cin >> guess;
+        	if (guess == rightnum) {
         		std::cout<<"You guessed right :D !!! \n";
         }
-        	else if (guess != "4") {
+        	else if (guess != rightnum) {
         		std::cout<<"try again you didnt guess right good guess!! \n";
 			}
 			}
